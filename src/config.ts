@@ -65,7 +65,7 @@ export const profileConfig: ProfileConfig = {
 			url: "https://twitter.com",
 		},
 		{
-			name: "",
+			name: "steam",
 			icon: "fa6-brands:steam",
 			url: "https://store.steampowered.com",
 		},
