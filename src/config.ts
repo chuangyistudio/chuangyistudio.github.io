@@ -58,18 +58,6 @@ export const profileConfig: ProfileConfig = {
 	bio: "  ",
 	links: [
 		{
-			name: "Twitter",
-			icon: "fa6-brands:twitter", // Visit https://icones.js.org/ for icon codes
-			// You will need to install the corresponding icon set if it's not already included
-			// `pnpm add @iconify-json/<icon-set-name>`
-			url: "https://twitter.com",
-		},
-		{
-			name: "steam",
-			icon: "fa6-brands:steam",
-			url: "https://store.steampowered.com",
-		},
-		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
 			url: "https://github.com/chuangyistudio",
@@ -79,8 +67,8 @@ export const profileConfig: ProfileConfig = {
 
 export const licenseConfig: LicenseConfig = {
 	enable: true,
-	name: "CC BY-NC-SA 4.0",
-	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+	name: "Apache 2.0",
+	url: "http://www.apache.org/licenses/LICENSE-2.0",
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
