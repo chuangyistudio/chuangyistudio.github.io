@@ -2,7 +2,6 @@
 title: "关于我们"
 published: 2026-03-19
 description: "创翼电子工作室招新啦！加入我们，一起用电路连接未来，探索科技无限可能。"
-image: ./cover.jpg
 tags: [招新, 电子工作室, 创新]
 category: 关于我们
 draft: false
