@@ -77,6 +77,11 @@ lang: zh_CN
 - **数学**: [KaTeX](https://katex.org)
 - **部署**: [GitHub Pages](https://pages.github.com)
 
+## 链接
+
+- [技术博客](https://chuangyistudio.github.io)
+- [内部文档](https://github.com/chuangyi-electronics/chuangyi-electronics_internal-docs)
+
 ## 📄 许可证
 
 MIT License
