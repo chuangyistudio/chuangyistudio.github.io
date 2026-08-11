@@ -35,3 +35,4 @@ yarn.lock
 # deployment
 .vercel
 .netlify
+node_modules_broken_*/

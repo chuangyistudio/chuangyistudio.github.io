@@ -53,3 +53,16 @@ html.is-animating .transition-swup-fade {
 #post-container :nth-child(4) { animation-delay: calc(var(--content-delay) + 175ms) }
 #post-container :nth-child(5) { animation-delay: calc(var(--content-delay) + 250ms) }
 #post-container :nth-child(6) { animation-delay: calc(var(--content-delay) + 325ms) }
+
+/* Respect users who prefer reduced motion: disable non-essential animation */
+@media (prefers-reduced-motion: reduce) {
+    html.is-animating .transition-swup-fade {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .onload-animation {
+        opacity: 1;
+        animation: none;
+    }
+}

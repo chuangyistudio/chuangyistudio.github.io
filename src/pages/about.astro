@@ -13,11 +13,20 @@ if (!aboutPost) {
 }
 
 const { Content } = await render(aboutPost);
+const aboutTitle = aboutPost.data.title || "关于我们";
+const aboutDescription =
+	aboutPost.data.description ||
+	"加入创翼电子工作室，一起用电路连接未来，探索科技与创新的更多可能。";
 ---
 <MainGridLayout title={i18n(I18nKey.about)} description={i18n(I18nKey.about)}>
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
-        <div class="card-base z-10 px-9 py-6 relative w-full ">
-            <Markdown class="mt-2">
+        <div class="card-base z-10 px-5 sm:px-7 md:px-9 py-6 md:py-8 relative w-full">
+            <header class="border-b border-dashed border-[var(--line-divider)] pb-6 mb-7">
+                <div class="text-xs font-bold tracking-[0.18em] text-[var(--primary)] mb-2">工作室</div>
+                <h1 class="text-3xl md:text-4xl font-bold text-black/90 dark:text-white/90 mb-3">{aboutTitle}</h1>
+                <p class="text-black/60 dark:text-white/60 leading-6">{aboutDescription}</p>
+            </header>
+            <Markdown class="mt-0">
                 <Content />
             </Markdown>
         </div>

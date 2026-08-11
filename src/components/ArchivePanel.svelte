@@ -76,7 +76,16 @@ onMount(async () => {
 });
 </script>
 
-<div class="card-base px-8 py-6">
+<div class="card-base px-4 sm:px-6 md:px-8 py-6">
+    <div class="flex items-end justify-between gap-4 border-b border-dashed border-[var(--line-divider)] pb-5 mb-2">
+        <div>
+            <div class="text-xs font-bold tracking-[0.18em] text-[var(--primary)] mb-1">文章</div>
+            <h1 class="text-2xl md:text-3xl font-bold text-90">{i18n(I18nKey.archive)}</h1>
+        </div>
+        <div class="shrink-0 rounded-lg bg-[var(--btn-regular-bg)] px-3 py-1.5 text-sm font-medium text-[var(--btn-content)]">
+            {sortedPosts.length} {i18n(sortedPosts.length === 1 ? I18nKey.postCount : I18nKey.postsCount)}
+        </div>
+    </div>
     {#each groups as group}
         <div>
             <div class="flex flex-row w-full items-center h-[3.75rem]">
