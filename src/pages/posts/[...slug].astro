@@ -1,8 +1,13 @@
 ---
 import { render } from "astro:content";
 import path from "node:path";
+// KaTeX and PhotoSwipe CSS are imported at the post page level so they are
+// bundled only on post pages and never pollute the homepage's first load.
+import "katex/dist/katex.css";
+import "photoswipe/style.css";
 import License from "@components/misc/License.astro";
 import Markdown from "@components/misc/Markdown.astro";
+import PhotoSwipe from "@components/misc/PhotoSwipe.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
@@ -25,6 +30,9 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings, remarkPluginFrontmatter } = await render(entry);
+
+// Only pull in the PhotoSwipe JS when the post actually has images.
+const hasImages = (entry.body ?? "").includes("![");
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -51,7 +59,7 @@ const jsonLd = {
             {}
         ]}>
             <!-- word count and reading time -->
-            <div class="flex flex-row text-black/30 dark:text-white/30 gap-5 mb-3 transition onload-animation">
+            <div class="flex flex-row text-black/55 dark:text-white/55 gap-5 mb-3 transition onload-animation">
                 <div class="flex flex-row items-center">
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
                         <Icon name="material-symbols:notes-rounded"></Icon>
@@ -132,4 +140,5 @@ const jsonLd = {
         </a>
     </div>
 
+    {hasImages && <PhotoSwipe />}
 </MainGridLayout>

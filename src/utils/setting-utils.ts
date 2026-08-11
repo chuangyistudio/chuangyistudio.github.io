@@ -13,18 +13,42 @@ export function getDefaultHue(): number {
 	return Number.parseInt(configCarrier?.dataset.hue || fallback, 10);
 }
 
+// Default accent hue for dark mode. Light mode uses the config default (getDefaultHue).
+const DARK_DEFAULT_HUE = 225;
+
+// The theme-aware default hue: light uses the config value, dark uses DARK_DEFAULT_HUE.
+export function getThemeDefaultHue(): number {
+	return document.documentElement.classList.contains("dark")
+		? DARK_DEFAULT_HUE
+		: getDefaultHue();
+}
+
 export function getHue(): number {
 	const stored = localStorage.getItem("hue");
-	return stored ? Number.parseInt(stored, 10) : getDefaultHue();
+	return stored ? Number.parseInt(stored, 10) : getThemeDefaultHue();
 }
 
 export function setHue(hue: number): void {
+	// If no custom hue has been stored and the value matches the current theme
+	// default, let the CSS `--hue` variable (which is theme-aware) handle it.
+	// Persisting it here would pin the default and break light/dark hue switching.
+	if (!localStorage.getItem("hue") && hue === getThemeDefaultHue()) {
+		return;
+	}
 	localStorage.setItem("hue", String(hue));
 	const r = document.querySelector(":root") as HTMLElement;
 	if (!r) {
 		return;
 	}
 	r.style.setProperty("--hue", String(hue));
+}
+
+// Reset the hue to the theme-aware default: drop the stored value and the
+// inline override so the CSS `--hue` default applies again.
+export function clearHue(): void {
+	localStorage.removeItem("hue");
+	const r = document.querySelector(":root") as HTMLElement;
+	r?.style.removeProperty("--hue");
 }
 
 export function applyThemeToDocument(theme: LIGHT_DARK_MODE) {

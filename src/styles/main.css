@@ -83,10 +83,10 @@
         @apply text-black/75 dark:text-white/75
     }
     .text-50 {
-        @apply text-black/50 dark:text-white/50
+        @apply text-black/60 dark:text-white/60
     }
     .text-30 {
-        @apply text-black/30 dark:text-white/30
+        @apply text-black/40 dark:text-white/40
     }
     .meta-icon {
         @apply w-8 h-8 transition rounded-md flex items-center justify-center bg-[var(--btn-regular-bg)]
@@ -99,6 +99,14 @@
     }
     .btn-regular-dark.success {
         @apply bg-[oklch(0.75_0.14_var(--hue))] dark:bg-[oklch(0.75_0.14_var(--hue))]
+    }
+
+    /* 导航栏滚动后的毛玻璃反馈 */
+    #navbar-wrapper.scrolled .card-base {
+        background: color-mix(in srgb, var(--card-bg) 82%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 1px 0 0 var(--line-divider);
     }
 }
 
