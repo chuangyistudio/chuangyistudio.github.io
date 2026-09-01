@@ -76,19 +76,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN)
 
 MX_FREERTOS_Init()中信号量的创建并初始化代码
 ```bash
-/\* Definitions for SendSem \*/
-
-osSemaphoreId_t SendSemHandle;
-
-const osSemaphoreAttr_t SendSem_attributes = {
-
-.name = "SendSem"
-
+/* Definitions for KeySemaphore */
+osSemaphoreId_t KeySemaphoreHandle;
+const osSemaphoreAttr_t KeySemaphore_attributes = {
+  .name = "KeySemaphore"
 };
-
-/\* creation of KeySemaphore \*/
-
-KeySemaphoreHandle = osSemaphoreNew(1, 0, &KeySemaphore_attributes);
 ```
 
 ---
