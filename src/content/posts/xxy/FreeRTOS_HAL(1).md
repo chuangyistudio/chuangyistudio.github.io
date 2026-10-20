@@ -4,6 +4,7 @@ published: 2026-08-07
 description: 基础知识
 tags: [电子, 嵌入式, 教程, FreeRTOS]
 category: 技术分享
+author: "Miss Apple"
 draft: false
 ---
 
